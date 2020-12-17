@@ -15,7 +15,7 @@ def implement_cross_validation_KNN(k,X,y,mean_error,std_error):
         ypred = model.predict(X[test])
         from sklearn.metrics import mean_squared_error
         temp.append(mean_squared_error(y[test],ypred))
-    #Calculating mean, variance and standard deviation for RMSE    
+    #Calculating mean, variance and standard deviation for MSE    
     mean_error.append(np.array(temp).mean())
     std_error.append(np.array(temp).std())
     return model,mean_error,std_error
@@ -95,15 +95,3 @@ ax[1]=plot_data_models(X_test[::100,0],y_test[::100],ax[1],"Actual")
 ax[1]=plot_data_models(X_test[::100,0],y_pred[::100],ax[1],"Predicted")
 manage_legends(fig[1])
 plt.show()
-
-# RMSE Mean Imputation 
-# Time 249.02747511863708
-# RMSE:  0.004183471559532914
-
-# RMSE Most Frequent Imputation 
-# Time 278.6638972759247
-# RMSE:  0.004559638567541018
-
-# RMSE Iterative Imputation 
-# Time 161.97807002067566
-# RMSE:  0.0033937515866751568
